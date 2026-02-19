@@ -1,36 +1,311 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Bookmark Manager — Full Stack Application
 
-## Getting Started
+##  Live Demo
+**Live Application URL:** <<<https://bookmark-manager-eta-lake.vercel.app/>>>
 
-First, run the development server:
+## GitHub Repository
+**Source Code:** <<<https://github.com/NPC-navyaa/bookmark-manager>>>
 
-```bash
+---
+
+#  Project Overview
+
+This project is a full-stack Bookmark Manager web application built using:
+
+- Next.js 14 (App Router)
+- Supabase (Authentication, Database, Realtime)
+- Tailwind CSS
+- Vercel (Deployment)
+
+The application allows users to:
+
+- Sign in securely using Google OAuth
+- Add personal bookmarks (Title + URL)
+- Delete bookmarks
+- View real-time updates without refreshing the page
+- Access only their own bookmarks securely
+
+This project demonstrates full-stack development skills, secure authentication integration, real-time data synchronization, and production deployment.
+
+---
+
+#  System Architecture
+
+The application follows a modern serverless architecture.
+
+## Frontend Layer
+Built using Next.js App Router which handles UI rendering and client logic.
+
+## Backend Services (Supabase)
+Provides:
+- Authentication system
+- PostgreSQL database
+- Real-time event engine
+
+## Deployment Platform
+The application is hosted on Vercel cloud infrastructure.
+
+---
+
+#  Technologies Used and Why
+
+## Next.js (App Router)
+
+Used for:
+- Modern React architecture
+- File-based routing
+- Optimized performance
+- Easy Vercel deployment
+
+App Router was chosen because it is the latest and recommended Next.js architecture.
+
+---
+
+## Supabase
+
+Supabase was used as a Backend-as-a-Service to provide:
+
+### Authentication
+- Google OAuth login
+- Secure session handling
+
+### Database
+- PostgreSQL relational database
+- Structured data storage
+
+### Realtime
+- Listens to database changes
+- Pushes updates instantly to frontend
+
+Supabase eliminates the need for building a custom backend.
+
+---
+
+## Tailwind CSS
+
+Used for:
+- Fast UI styling
+- Responsive layouts
+- Modern design system
+
+---
+
+# 🗄 Database Design
+
+A single table named `bookmarks` was created.
+
+Each row represents one bookmark.
+
+## Table Structure
+
+| Column | Description |
+|--------|-------------|
+| id | Unique bookmark ID |
+| user_id | Owner of the bookmark |
+| title | Bookmark title |
+| url | Bookmark link |
+| created_at | Timestamp |
+
+---
+
+#  Data Security — Row Level Security (RLS)
+
+Row Level Security was enabled to ensure users can only access their own data.
+
+Without RLS:
+All users could see all bookmarks.
+
+With RLS:
+Users can only access records where:
+
+auth.uid() = user_id
+
+Policies were created for:
+- SELECT
+- INSERT
+- DELETE
+
+This ensures complete data privacy.
+
+---
+
+#  Real-Time Functionality — How It Works
+
+Supabase Realtime allows the frontend to listen to database changes.
+
+Steps:
+
+1. A subscription channel is created in the dashboard.
+2. It listens for INSERT, DELETE, and UPDATE events.
+3. When a change occurs:
+   - Supabase sends an event to the frontend.
+   - The UI automatically refreshes the bookmark list.
+
+This allows instant updates without page refresh.
+
+---
+
+#  Step-by-Step Development Process
+
+## Step 1 — Project Initialization
+
+Created Next.js project:
+
+npx create-next-app@latest bookmark-manager
+
+Configured:
+- App Router
+- Tailwind CSS
+- TypeScript
+
+Installed Supabase client:
+
+npm install @supabase/supabase-js
+
+---
+
+## Step 2 — Supabase Setup
+
+- Created Supabase project
+- Created bookmarks table
+- Enabled Row Level Security
+- Added access policies
+- Enabled realtime replication
+
+---
+
+## Step 3 — Google Authentication Setup
+
+- Enabled Google provider in Supabase
+- Created OAuth credentials in Google Cloud Console
+- Added redirect URI:
+https://YOUR_PROJECT_ID.supabase.co/auth/v1/callback
+
+---
+
+## Step 4 — Frontend Development
+
+Implemented:
+- Login page
+- Dashboard page
+- Bookmark add/delete logic
+- User session handling
+
+---
+
+## Step 5 — Real-Time Integration
+
+- Enabled replication in Supabase
+- Subscribed to database changes
+- Implemented automatic UI refresh
+
+---
+
+## Step 6 — UI Development
+
+Designed:
+- Modern card layout
+- Responsive forms
+- Accessible colors
+- Loading states
+- Empty state messaging
+
+---
+
+## Step 7 — GitHub Setup
+
+Initialized Git:
+
+git init
+git add .
+git commit -m "Initial commit"
+
+Connected to GitHub:
+
+git remote add origin <<<https://github.com/NPC-navyaa/bookmark-manager>>>
+git push -u origin main
+
+---
+
+## Step 8 — Deployment to Vercel
+
+Steps:
+
+1. Imported GitHub repo into Vercel
+2. Added environment variables
+3. Deployed application
+4. Configured production OAuth URLs
+
+---
+
+# 🧪 How to Run Locally
+
+## Clone repository
+
+git clone <<<https://github.com/NPC-navyaa/bookmark-manager.git>>>
+cd bookmark-manager
+
+## Install dependencies
+
+npm install
+
+## Add environment variables
+
+Create .env.local:
+
+NEXT_PUBLIC_SUPABASE_URL=<<<YOUR SUPABASE URL>>>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<<<sb_publishable_eNYo2g9gvXHjy41ptg7ECw_1t_YsJMZ>>>
+
+## Run development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 🧩 Challenges Faced
 
-## Learn More
+Google OAuth redirect errors were resolved by configuring correct redirect URLs.
 
-To learn more about Next.js, take a look at the following resources:
+Row Level Security initially blocked data, which was solved by implementing correct policies.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Realtime updates did not work until table replication was enabled.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+PowerShell script errors were resolved by updating execution policy.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 📈 Future Improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Bookmark editing
+- Search functionality
+- Bookmark categories
+- Dark mode support
+- URL preview thumbnails
+
+---
+
+# 👩‍💻 Author
+
+<<<YOUR NAME>>>
+
+---
+
+# ✅ Conclusion
+
+This project demonstrates strong knowledge of:
+
+- Full-stack development
+- Authentication integration
+- Database security
+- Real-time systems
+- Cloud deployment
+
+The application is fully functional and production-ready.
+
+---
+
+## 🎉 Thank You
+
