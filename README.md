@@ -179,7 +179,7 @@ npm install @supabase/supabase-js
 - Enabled Google provider in Supabase
 - Created OAuth credentials in Google Cloud Console
 - Added redirect URI:
-https://YOUR_PROJECT_ID.supabase.co/auth/v1/callback
+  (https://qoyyoeamulywaltxwhzq.supabase.co)
 
 ---
 
