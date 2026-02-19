@@ -238,7 +238,7 @@ Steps:
 
 ---
 
-# 🧪 How to Run Locally
+# How to Run Locally
 
 ## Clone repository
 
@@ -253,7 +253,7 @@ npm install
 
 Create .env.local:
 
-NEXT_PUBLIC_SUPABASE_URL=<<<YOUR SUPABASE URL>>>
+NEXT_PUBLIC_SUPABASE_URL=<<<Y(https://qoyyoeamulywaltxwhzq.supabase.co)>>>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<<<sb_publishable_eNYo2g9gvXHjy41ptg7ECw_1t_YsJMZ>>>
 
 ## Run development server
@@ -265,7 +265,7 @@ http://localhost:3000
 
 ---
 
-# 🧩 Challenges Faced
+#  Challenges Faced
 
 Google OAuth redirect errors were resolved by configuring correct redirect URLs.
 
@@ -277,7 +277,7 @@ PowerShell script errors were resolved by updating execution policy.
 
 ---
 
-# 📈 Future Improvements
+# Future Improvements
 
 - Bookmark editing
 - Search functionality
@@ -287,13 +287,13 @@ PowerShell script errors were resolved by updating execution policy.
 
 ---
 
-# 👩‍💻 Author
+#  Author
 
-<<<YOUR NAME>>>
+<<<Navyaa Jain>>>
 
 ---
 
-# ✅ Conclusion
+# Conclusion
 
 This project demonstrates strong knowledge of:
 
@@ -307,5 +307,5 @@ The application is fully functional and production-ready.
 
 ---
 
-## 🎉 Thank You
+## Thank You
 
