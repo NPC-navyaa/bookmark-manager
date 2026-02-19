@@ -289,7 +289,7 @@ PowerShell script errors were resolved by updating execution policy.
 
 #  Author
 
-<<<Navyaa Jain>>>
+<<< Navyaa Jain >>>
 
 ---
 
